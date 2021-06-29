@@ -43,7 +43,6 @@ public class UserService {
             roles.add(role);
         }
         user.setRoles(roles);
-
         //把StatusDTO转换成Status类型
         Status status = new Status();
         BeanUtils.copyProperties(userDto.getStatus(),status);
@@ -78,6 +77,31 @@ public class UserService {
         log.warn("原来的是：");
         log.warn(statusDto.toString());
         statusRepository.save(status);
+    }
+    /**
+     * 根据用户名查找用户
+     */
+    public List<UserDto> getUserByUsername(String username){
+        List<User> users = userRepository.findByName(username);
+        //把User转换成UserDto
+        List<UserDto> userDtos = new ArrayList<>();
+        for(User user: users){
+            UserDto userDto = new UserDto();
+            BeanUtils.copyProperties(user,userDto);
+            //把roles列表中的Role类型转换成RoleDto类型
+            for(Role role : user.getRoles()){
+                RoleDto roleDto = new RoleDto();
+                BeanUtils.copyProperties(role,roleDto);
+                userDto.getRoles().add(roleDto);
+            }
+            //Status转换成StatusDto
+            StatusDto statusDto = new StatusDto();
+            BeanUtils.copyProperties(user.getStatus(),statusDto);
+            userDto.setStatus(statusDto);
+            userDtos.add(userDto);
+        }
+        return  userDtos;
+
     }
 
 }

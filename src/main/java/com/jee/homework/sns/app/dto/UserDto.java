@@ -30,5 +30,12 @@ public class UserDto {
     public void addRole(RoleDto roleDto){
         this.roles.add(roleDto);
     }
+    public List<String> getRoleNames(){
+        List<String> roleNames = new ArrayList<>();
+        for(RoleDto roleDto : roles ){
+            roleNames.add(roleDto.getRoleName());
+        }
+        return roleNames;
+    }
 
 }

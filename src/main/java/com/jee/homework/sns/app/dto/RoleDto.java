@@ -2,11 +2,13 @@ package com.jee.homework.sns.app.dto;
 
 import com.jee.homework.sns.common.constant.RoleConstants;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
 public class RoleDto {
     private Long id;
     private Date createTime;

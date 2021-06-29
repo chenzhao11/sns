@@ -10,7 +10,10 @@ public enum ResultCode {
     //可以理解成指定了一些实例，这些实例都有指定的属性
     SUCCESS(200,"success"),
     SERVER_INNER_ERRO(500,"服务器内部错误"),
-    ARGUMENT_ERRO(1000,"参数错误");
+    ARGUMENT_ERRO(1000,"参数错误"),
+    USERNAME_NOTFOUND(1001,"未找到用户名"),
+    AUTHTICATION_FAILED(1002,"用户认证失败"),
+    RESULTPACK_ERRO(1003,"封装返回结果失败");
 
     private  int code;
     private String msg;
