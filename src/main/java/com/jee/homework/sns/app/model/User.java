@@ -19,13 +19,15 @@ import java.util.List;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class User extends BaseEntity {
 
 
     /**
      *用户的角色
      */
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")},
     inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private List<Role> roles;
@@ -33,7 +35,7 @@ public class User extends BaseEntity {
     /**
      * 用户当前状态 禁用 0  启用 1
      */
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "status_id")
     private Status status;
 

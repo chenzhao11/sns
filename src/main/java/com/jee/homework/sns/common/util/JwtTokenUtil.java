@@ -1,6 +1,8 @@
 package com.jee.homework.sns.common.util;
 
 import com.jee.homework.sns.app.security.JwtUser;
+import com.jee.homework.sns.common.constant.ResultCode;
+import com.jee.homework.sns.common.exception.APIException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -40,8 +42,13 @@ public  class JwtTokenUtil  {
                 .compact();
     }
     public  String getUsernameFormToken(String token){
-        Claims claims = getClaimsFromToken(token);
-        return  (String)claims.get(usernameKey);
+        if(token != null){
+            Claims claims = getClaimsFromToken(token);
+            return  (String)claims.get(usernameKey);
+        }else{
+            throw new APIException(ResultCode.EMPTY_TOKEN,"token为空");
+        }
+
     }
     public String refreshToken(String token){
         String newToken;

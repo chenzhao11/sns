@@ -12,6 +12,8 @@ import javax.persistence.*;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Role extends BaseEntity {
     /**
      * 用户的角色表

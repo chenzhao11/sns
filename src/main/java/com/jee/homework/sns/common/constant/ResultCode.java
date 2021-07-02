@@ -13,7 +13,10 @@ public enum ResultCode {
     ARGUMENT_ERRO(1000,"参数错误"),
     USERNAME_NOTFOUND(1001,"未找到用户名"),
     AUTHTICATION_FAILED(1002,"用户认证失败"),
-    RESULTPACK_ERRO(1003,"封装返回结果失败");
+    RESULTPACK_ERRO(1003,"封装返回结果失败"),
+    USERNAMENOTUNIC(1004,"用户名已存在"),
+    STATUS_NOT_EXITS(1005,"非法用户状态"),
+    EMPTY_TOKEN(1006,"token为空");
 
     private  int code;
     private String msg;

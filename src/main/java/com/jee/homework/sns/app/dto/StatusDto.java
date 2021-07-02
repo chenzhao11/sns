@@ -1,10 +1,7 @@
 package com.jee.homework.sns.app.dto;
 
 import com.jee.homework.sns.common.constant.StatusConstants;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -13,6 +10,8 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class StatusDto {
     private Long id;
     private Date createTime;

@@ -18,7 +18,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  *Author: zhaochen
  *Date: 2021/6/28
  */
-@RestControllerAdvice
+//要加上basePackage限制不然会影响swagger的使用
+@RestControllerAdvice(basePackages = "com.jee.homework.sns")
 public class ResultPackage implements ResponseBodyAdvice<Object> {
 
 
