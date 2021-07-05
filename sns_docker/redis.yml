@@ -1,6 +1,6 @@
 version: '2'
 services:
-  mooc-redis:
+  sns-redis:
     image: bitnami/redis:4.0
     environment:
       - ALLOW_EMPTY_PASSWORD=yes

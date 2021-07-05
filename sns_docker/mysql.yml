@@ -1,11 +1,11 @@
 version: '2'
 services:
-    mooc-mysql:
+    sns-mysql:
         image: mysql:5.7.22
         volumes:
             - ./data/mysql/conf:/etc/mysql/conf.d
             - ./data/mysql/data:/var/lib/mysql
-#            - ../sql/mooc.sql:/docker-entrypoint-initdb.d/mooc.sql
+            - ./sql/sns.sql:/docker-entrypoint-initdb.d/mooc.sql
         environment:
             - MYSQL_USER=root
             - MYSQL_ROOT_PASSWORD=123456
